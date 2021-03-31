@@ -3,7 +3,7 @@
 ## **turtlerino is a twitch chat tool used to enhance a users experience on the platform.** 
 
 
-##To begin I would highly recommend for you to research on ratelimits that twitch has **[here](https://dev.twitch.tv/docs/irc/guide#command--message-limit).**
+## To begin I would highly recommend for you to research on ratelimits that twitch has **[here](https://dev.twitch.tv/docs/irc/guide#command--message-limit).**
 
 
 turtlerino spam based commands are only for channels that you are mod/vip in (no delay in messages) basic commands and the rainbow feature will work in most chats.
