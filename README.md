@@ -2,6 +2,7 @@
 
 ## **turtlerino is a twitch chat tool used to enhance a users experience on the platform.** 
 
+[image example] (https://i.imgur.com/HilfahP.png)
 
 ## To begin I would highly recommend for you to research on ratelimits that twitch has **[here](https://dev.twitch.tv/docs/irc/guide#command--message-limit).**
 
@@ -37,6 +38,8 @@ The box at the bottom is where you send all your messages, If you would like to 
 To add custom commands you will need to click settings there you will find a command: and then a textbox with / already entered in. To create a valid command you need to type (command)(space)(message to send) and then press enter, close the settings window, type out your command in chat and enjoy :) 
 
 There is not a way to delete a command yet as a button so if you really want to delete a command open the commands file with notepad or any text editor and make sure when deleting a command the formatting of {command: message to send} is still correct or you may risk it being invalid.
+
+Windows may detect turtlerino as a virus. This is because it has an untrusted unsigned exe which would cost a yearly payment which im not willing to do. If you would not want this message disable your antivirus or run the main_gui python file instead of turtlerino.exe, the files and what they do are all there so if you do not trust the program you can see everything that it does.
 
 
 
