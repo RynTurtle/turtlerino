@@ -2,7 +2,7 @@
 
 ## **turtlerino is a twitch chat tool used to enhance a users experience on the platform.** 
 
-[image example] (https://i.imgur.com/HilfahP.png)
+[image example](https://i.imgur.com/HilfahP.png)
 
 ## To begin I would highly recommend for you to research on ratelimits that twitch has **[here](https://dev.twitch.tv/docs/irc/guide#command--message-limit).**
 
