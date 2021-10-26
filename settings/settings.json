@@ -33,7 +33,7 @@
             "/newlinecommand": "NaM*this is an example of a turtlerino command* with a newline* NaM",
             "/pastebincommand": "before pastebin https://pastebin.com/2b8fDrVJ  after pastebin",
             "/insertcommand": "have a {1} day",
-            "/insert rainbow": "*{RAINBOW} yo"
+            "/insertrainbow": "*{RAINBOW} yo"
         }
     }
 }
