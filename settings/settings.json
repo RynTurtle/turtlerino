@@ -1,0 +1,39 @@
+{
+    "settings": {
+        "account_information": {
+            "oauth": ""
+        },
+        "gui": {
+            "checkboxes": {
+                "rainbow timer": "False",
+                "rainbow per message": "False",
+                "/me": "False",
+                "PePegE MoDe": "False",
+                "MrDestructoid": "False"
+            }
+        },
+        "user_rainbow_settings": {
+            "rainbow_timer": 10,
+            "rainbow_hue_start": 0,
+            "rainbow_saturation_start": 99,
+            "rainbow_lightness_start": 99,
+            "rainbow_hue_end": 99,
+            "rainbow_saturation_end": 99,
+            "rainbow_lightness_end": 99,
+            "rainbow_hue_increment": 1,
+            "rainbow_saturation_increment": 0,
+            "rainbow_lightness_increment": 0,
+            "rainbow_hue_decrease": 1
+        },
+        "premade_commands": {
+            "/pyramid": ""
+        },
+        "commands": {
+            "/command": "NaM this is an example of a turtlerino command",
+            "/newlinecommand": "NaM*this is an example of a turtlerino command* with a newline* NaM",
+            "/pastebincommand": "before pastebin https://pastebin.com/2b8fDrVJ  after pastebin",
+            "/insertcommand": "have a {1} day",
+            "/insert rainbow": "*{RAINBOW} yo"
+        }
+    }
+}
