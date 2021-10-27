@@ -18,7 +18,7 @@ def connect():
     sock.send(bytes('NICK turtlerino' + '\r\n', 'utf-8'))
     sock.send(bytes('CAP REQ :twitch.tv/commands' + '\r\n', 'utf-8'))
     sock.send(bytes('CAP REQ :twitch.tv/tags' + '\r\n', 'utf-8'))
-    print(f"connection {len(sockets) + 1}  / {connections_needed()} ") 
+    print(f"connection {len(sockets)}  / {connections_needed()} ") 
     sockets.append(sock)
  
 def socket_list():

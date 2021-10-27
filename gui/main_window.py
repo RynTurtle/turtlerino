@@ -140,9 +140,9 @@ class main_window(qtw.QMainWindow):
     def connect_needed_amount(self):
         with open("settings/settings.json","r+") as settings:
             load_data = json.load(settings)
-            oauth = load_data['settings']['account_information']['oauth']
+            self.oauth = load_data['settings']['account_information']['oauth']
         
-        if len(oauth) > 5: # if theres an oauth inside the file
+        if len(self.oauth) > 5: # if theres an oauth inside the file
             if len(socket_list()) < connections_needed(): #then connect
                 connect()    
 
@@ -153,6 +153,7 @@ class main_window(qtw.QMainWindow):
                 data = sockets.recv(4096)
                 decoded_data = data.decode("utf-8").split("\r\n")
                 if "PING :tmi.twitch.tv" in decoded_data[0]:
+                    print("PONG")
                     sock.send(bytes('PONG :tmi.twitch.tv' + '\r\n', 'utf-8'))
         except Exception as e: 
             if ConnectionAbortedError:
@@ -212,24 +213,26 @@ class main_window(qtw.QMainWindow):
             self.ctrl_held_state = False
 
     def send_request(self):  
-        try:
-            textbox_messages = self.send_message_box.toPlainText()
-            if textbox_messages != "" or textbox_messages != " ":
-                with open("settings/settings.json","r+") as settings:
-                    load_data = json.load(settings) 
-                    commands_list = list(load_data['settings']['commands'].keys())
-                    commands_list_premade = list(load_data['settings']['premade_commands'].keys())
-                    command = textbox_messages.split()[0] 
-                    if command in commands_list:
-                        handle(parse_command(command,textbox_messages),self.channel_textbox.text()) 
-                    elif command in commands_list_premade:
-                        premade_commands(command,textbox_messages,self.channel_textbox.text())
-                    else:
-                        handle(textbox_messages,self.channel_textbox.text()) 
+        if len(self.oauth) > 5:
+            try:
+                textbox_messages = self.send_message_box.toPlainText()
+                if textbox_messages != "" or textbox_messages != " ":
+                    with open("settings/settings.json","r+") as settings:
+                        load_data = json.load(settings) 
+                        commands_list = list(load_data['settings']['commands'].keys())
+                        commands_list_premade = list(load_data['settings']['premade_commands'].keys())
+                        command = textbox_messages.split()[0] 
+                        if command in commands_list:
+                            handle(parse_command(command,textbox_messages),self.channel_textbox.text()) 
+                        elif command in commands_list_premade:
+                            premade_commands(command,textbox_messages,self.channel_textbox.text())
+                        else:
+                            handle(textbox_messages,self.channel_textbox.text()) 
 
-        except IndexError:
-            pass 
-
+            except IndexError:
+                pass 
+        else:
+            print("oauth not specified")
 
     def show_settings_window(self):
         self.window = settings_window.settings_window()
