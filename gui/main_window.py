@@ -148,19 +148,21 @@ class main_window(qtw.QMainWindow):
 
     def read_messages(self):
         check_queue(self.rate_limit_entered)
-        try:  
+        try:
             for sockets in socket_list():
                 data = sockets.recv(4096)
                 decoded_data = data.decode("utf-8").split("\r\n")
                 if "PING :tmi.twitch.tv" in decoded_data[0]:
                     print("PONG")
-                    sock.send(bytes('PONG :tmi.twitch.tv' + '\r\n', 'utf-8'))
-        except Exception as e: 
-            if ConnectionAbortedError:
-                if "connection" in str(e).lower(): 
-                    sockets.close()
-                    socket_list().remove(sockets)
-                    connect()
+                    sockets.send(bytes('PONG :tmi.twitch.tv' + '\r\n', 'utf-8'))
+       
+        except BlockingIOError:
+            pass 
+
+        except ConnectionResetError:
+            sockets.close()
+            socket_list().remove(sockets)
+
 
     def rainbow_change_timer(self):
         with open("settings/settings.json","r+") as settings:
@@ -230,7 +232,8 @@ class main_window(qtw.QMainWindow):
                             handle(textbox_messages,self.channel_textbox.text()) 
 
             except IndexError:
-                pass 
+                pass
+
         else:
             print("oauth not specified")
 
