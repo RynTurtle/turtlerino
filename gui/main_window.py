@@ -164,6 +164,11 @@ class main_window(qtw.QMainWindow):
             socket_list().remove(sockets)
 
 
+        except ConnectionAbortedError:
+            sockets.close()
+            socket_list().remove(sockets)
+
+
     def rainbow_change_timer(self):
         with open("settings/settings.json","r+") as settings:
             load_data = json.load(settings)      
