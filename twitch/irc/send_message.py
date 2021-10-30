@@ -9,7 +9,7 @@ def sendRaw(message,channel):
         if rotate_sockets == len(socket_list()):
             rotate_sockets = 0
         print(f"Sending: {message} ")
-        socket_list()[rotate_sockets].send(bytes(f"PRIVMSG #{channel} :{message}" + '\r\n', 'utf-8'))
+        socket_list()[rotate_sockets].send(bytes(f"PRIVMSG #{channel} :{message.strip()}" + '\r\n', 'utf-8'))
         rotate_sockets += 1
     except IOError as e:
         if e.errno == errno.EPIPE: 
