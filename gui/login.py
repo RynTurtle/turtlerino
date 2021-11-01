@@ -43,5 +43,6 @@ class login_window(qtw.QWidget):
             settings.truncate() # remove old content 
             rewrite_file = json.dump(load_data,settings,indent=4) # rewrite the file with the new data
 
+        self.close()
         
 
