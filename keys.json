@@ -1,0 +1,10 @@
+{
+    "twitch":  
+    {
+    "oauth":"",
+    "client-id":"",
+    "client-secret":""
+    },
+    "spotify":{},
+    "twitter":{}
+}
